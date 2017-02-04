@@ -1,0 +1,41 @@
+html, body {
+  height: 100%;
+}
+body {
+  text-align: center;
+}
+.board {
+  border: 20px solid #7b9c4b;
+  position: relative;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+
+  .square {
+    width: 12.5%;
+    height: 12.5%;
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      padding-top: 100%
+    };
+    &.dark {
+      background-color: darkolivegreen;
+    }
+    &.light {
+      background-color: lightgoldenrodyellow;
+    }
+
+    .clickTarget {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+    .pawn {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

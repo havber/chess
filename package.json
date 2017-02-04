@@ -1,0 +1,44 @@
+{
+  "name": "chess",
+  "version": "0.0.1",
+  "description": "Online chess game",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "dev": "node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors --content-base build/ --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/havber/chess"
+  },
+  "keywords": [
+    "chess"
+  ],
+  "author": "havber@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dnd": "^2.1.4",
+    "react-dnd-html5-backend": "^2.1.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.2",
+    "redux": "^3.6.0",
+    "redux-devtools": "^3.3.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-object-rest-spread": "^6.22.0",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "css-loader": "^0.26.1",
+    "node-sass": "^4.4.0",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "svg-url-loader": "^1.1.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
