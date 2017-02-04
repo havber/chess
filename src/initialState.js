@@ -27,11 +27,11 @@ export const initialState = {
     {id: 25, type: 'bishop', color: 'white', position: [5,7]},
     {id: 26, type: 'bishop', color: 'white', position: [2,7]},
     {id: 27, type: 'bishop', color: 'black', position: [2,0]},
-    {id: 28, type: 'bishop', color: 'black', position: [5,0]},
-    {id: 25, type: 'queen', color: 'black', position: [3,0]},
-    {id: 26, type: 'queen', color: 'white', position: [3,7]},
-    {id: 27, type: 'king', color: 'black', position: [4,0]},
-    {id: 28, type: 'king', color: 'white', position: [4,7]},
+    {id: 29, type: 'bishop', color: 'black', position: [5,0]},
+    {id: 30, type: 'queen', color: 'black', position: [3,0]},
+    {id: 31, type: 'queen', color: 'white', position: [3,7]},
+    {id: 32, type: 'king', color: 'black', position: [4,0]},
+    {id: 33, type: 'king', color: 'white', position: [4,7]},
   ],
   hasMoved: false
 };
