@@ -48,11 +48,11 @@ class Pawn extends Component {
     const { connectDragSource, isDragging, connectDragPreview } = this.props;
     const black = this.props.item.color === 'black';
     return connectDragPreview(
-      <div className="hrpp" style={{backgroundColor: 'transparent'}}>
+      <div className="pawn" style={{backgroundColor: 'transparent'}}>
       {
         connectDragSource(
           <div style={{opacity: isDragging ? 0 : 1}}>
-            <img src={'http://localhost:8080/assets/' + (black ? 'bp.svg' : 'wp.svg')} height="65" width="65"/>
+            <img src={'http://localhost:8080/assets/' + (black ? 'bp.svg' : 'wp.svg')}/>
           </div>)
       }
       </div>

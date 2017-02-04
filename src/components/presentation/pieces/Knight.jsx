@@ -52,7 +52,7 @@ class Knight extends Component {
       {
         connectDragSource(
           <div style={{opacity: isDragging ? 0 : 1}}>
-            <img src={'http://localhost:8080/assets/' + (black ? 'bn.svg' : 'wn.svg')} height="65" width="65"/>
+            <img src={'http://localhost:8080/assets/' + (black ? 'bn.svg' : 'wn.svg')}/>
           </div>)
       }
       </div>
