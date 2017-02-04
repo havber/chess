@@ -1,6 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { ItemTypes } from '../../../Constants.js';
 import Pawn from '../pieces/Pawn.jsx';
+import Rook from '../pieces/Rook.jsx';
+import Knight from '../pieces/Knight.jsx';
+import Bishop from '../pieces/Bishop.jsx';
+import Queen from '../pieces/Queen.jsx';
+import King from '../pieces/King.jsx';
 import { DropTarget } from 'react-dnd';
 import {connect} from "react-redux";
 
@@ -9,9 +14,7 @@ function squareClick(e) {
 }
 const mapStateToProps = (state) => {
   return {
-    pawns: state.pieces.filter( piece => {
-      return piece.type === 'pawn';
-    })
+    pieces: state.pieces
   }
 };
 
@@ -31,15 +34,35 @@ function collect(connect, monitor) {
 class Square extends Component {
 
   getPieceAtPosition(x, y) {
-    let pawn = {};
-    this.props.pawns.forEach(p => {
+    let piece = {};
+    this.props.pieces.forEach(p => {
       if (p.position[0] === x && p.position[1] === y) {
-        pawn.element = (<Pawn item={p}/>);
-        pawn.item = p;
+        switch(p.type) {
+          case 'pawn':
+            piece.element = (<Pawn item={p}/>);
+            break;
+          case 'rook':
+            piece.element = (<Rook item={p}/>);
+            break;
+          case 'knight':
+            piece.element = (<Knight item={p}/>);
+            break;
+          case 'bishop':
+            piece.element = (<Bishop item={p}/>);
+            break;
+          case 'queen':
+            piece.element = (<Queen item={p}/>);
+            break;
+          case 'king':
+            piece.element = (<King item={p}/>);
+            break;
+        }
+
+        piece.item = p;
       }
     });
 
-    return pawn;
+    return piece;
   }
 
   render () {
@@ -66,4 +89,12 @@ const BoardSquare = connect(
   mapStateToProps
 )(Square);
 
-export default DropTarget(ItemTypes.PAWN, squareTarget, collect)(BoardSquare);
+export default DropTarget(
+  [
+    ItemTypes.PAWN,
+    ItemTypes.ROOK,
+    ItemTypes.KNIGHT,
+    ItemTypes.BISHOP,
+    ItemTypes.QUEEN,
+    ItemTypes.KING,
+  ], squareTarget, collect)(BoardSquare);

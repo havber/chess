@@ -14,6 +14,11 @@ export function chessGame(state = initialState, action) {
 
   switch (action.type) {
     case 'MOVE_PAWN':
+    case 'MOVE_ROOK':
+    case 'MOVE_KNIGHT':
+    case 'MOVE_BISHOP':
+    case 'MOVE_QUEEN':
+    case 'MOVE_KING':
       return {
         ...state,
         pieces: updatePiecesArray(state, action.data),
