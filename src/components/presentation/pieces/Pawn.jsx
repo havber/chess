@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {DragSource} from 'react-dnd';
 import {ItemTypes} from '../../../Constants.js';
 import {connect} from "react-redux";
+import {PawnPreview} from './Previews/PawnPreview.jsx';
 
 const mapStateToProps = (state) => {
   return {...state};
@@ -62,6 +63,7 @@ class Pawn extends Component {
 
 Pawn.propTypes = {
   connectDragSource: PropTypes.func.isRequired,
+  connectDragPreview: PropTypes.func.isRequired,
   isDragging: PropTypes.bool.isRequired,
 };
 
