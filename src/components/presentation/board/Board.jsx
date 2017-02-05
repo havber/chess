@@ -2,6 +2,13 @@ import React from 'react';
 import Square from './Square.jsx';
 import {DragDropContext} from 'react-dnd';
 import HTMLBackend from 'react-dnd-html5-backend';
+import {connect} from "react-redux";
+
+const mapStateToProps = (state) => {
+  return {
+    numberOfMoves: state.numberOfMoves
+  }
+};
 
 class Board extends React.Component {
 
@@ -26,4 +33,8 @@ class Board extends React.Component {
   }
 }
 
-export default DragDropContext(HTMLBackend)(Board);
+const ChessBoard = connect(
+  mapStateToProps
+)(Board);
+
+export default DragDropContext(HTMLBackend)(ChessBoard);

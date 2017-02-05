@@ -33,5 +33,5 @@ export const initialState = {
     {id: 32, type: 'king', color: 'black', position: [4,0]},
     {id: 33, type: 'king', color: 'white', position: [4,7]},
   ],
-  hasMoved: false
+  numberOfMoves: 0
 };
