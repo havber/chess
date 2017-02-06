@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {DragSource} from 'react-dnd';
 import {ItemTypes} from '../../../Constants.js';
 import {connect} from "react-redux";
+import {getEmptyImage} from "react-dnd-html5-backend";
 
 const mapStateToProps = (state) => {
   return {...state};
@@ -38,9 +39,9 @@ class King extends Component {
 
   componentDidMount() {
     const { connectDragPreview } = this.props;
-    const img = new Image();
-    img.src = this.props.item.color === 'black' ? 'http://localhost:8080/assets/bk.svg' : 'http://localhost:8080/assets/wk.svg';
-    img.onload = () => connectDragPreview(img);
+    connectDragPreview(getEmptyImage(), {
+      captureDraggingState: true,
+    });
   }
 
 

@@ -25,7 +25,10 @@ const enhancers = composeEnhancers(applyMiddleware(...middleware));
 
 const store = createStore(chessGame, initialState, enhancers);
 ReactDOM.render(
-  <Provider store={store}>
-    <Board/>
-  </Provider>,
-  document.getElementById('main'));
+  <div>
+    <Provider store={store}>
+      <Board/>
+    </Provider>
+  </div>,
+  document.getElementById('main')
+);

@@ -3,6 +3,7 @@ import Square from './Square.jsx';
 import {DragDropContext} from 'react-dnd';
 import HTMLBackend from 'react-dnd-html5-backend';
 import {connect} from "react-redux";
+import PawnDragLayer from '../pieces/Previews/CustomDragLayer.jsx';
 
 const mapStateToProps = (state) => {
   return {
@@ -29,7 +30,12 @@ class Board extends React.Component {
     for (let i = 0; i < 64; i ++) {
       squares.push(this.renderSquare(i));
     }
-    return (<div className="board">{squares}</div>);
+    return (
+      <div>
+        <div className="board">{squares}</div>
+        <PawnDragLayer/>
+      </div>
+    );
   }
 }
 

@@ -4,16 +4,26 @@ html, body {
 body {
   text-align: center;
 }
+
+* {
+  box-sizing: border-box;
+}
 img.preview {
   height: 10px;
   width: 10px;
 }
+
 .board {
   border: 20px solid #7b9c4b;
   position: relative;
-  width: 75%;
+  max-width: 75%;
+  max-width: 95vh;
+  max-height: 95vh;
   display: flex;
   flex-wrap: wrap;
+  &:before {
+    padding-top: 100%;
+}
 
   .square {
     width: 12.5%;
@@ -38,6 +48,9 @@ img.preview {
       width: 100%;
     }
     .pawn, .knight, .rook, .bishop, .queen, .king {
+      &:hover {
+        cursor: hand;
+      }
       padding-top: 10%;
       img {
         height: 85%;
