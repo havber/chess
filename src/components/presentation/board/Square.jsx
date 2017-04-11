@@ -9,17 +9,15 @@ import King from '../pieces/King.jsx';
 import { DropTarget } from 'react-dnd';
 import {connect} from "react-redux";
 
-function squareClick(e) {
-  e.preventDefault();
-}
 const mapStateToProps = (state) => {
   return {
-    pieces: state.pieces
+    pieces: state.pieces,
   }
 };
 
 const squareTarget = {
   drop(props) {
+    console.log(props);
     return {...props}
   }
 };
@@ -33,10 +31,25 @@ function collect(connect, monitor) {
 
 class Square extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      selected: false,
+    };
+  }
+
+  squareClick(e) {
+    e.preventDefault();
+    this.setState({
+      selected: !this.state.selected
+    })
+  }
+
   getPieceAtPosition(x, y) {
     let piece = {};
     this.props.pieces.forEach(p => {
-      if (p.position[0] === x && p.position[1] === y) {
+      if (p.position[0] === x && p.position[1] === y && !p.captured) {
         switch(p.type) {
           case 'pawn':
             piece.element = (<Pawn item={p}/>);
@@ -66,13 +79,13 @@ class Square extends Component {
   }
 
   render () {
-    const { x, y, connectDropTarget, isOver,  } = this.props;
+    const { x, y, connectDropTarget, isOver, } = this.props;
     const piece = this.getPieceAtPosition(x, y);
     return connectDropTarget(
       <div
-        style={{backgroundColor: isOver ? 'yellow' : 'transparent'}}
+        style={{backgroundColor: isOver || this.state.selected ? 'yellow' : 'transparent'}}
         className="clickTarget"
-        onClick={squareClick}>
+        onClick={this.squareClick.bind(this)}>
         {piece.element}
       </div>
     );
@@ -82,7 +95,7 @@ class Square extends Component {
 Square.propTypes = {
   x: PropTypes.number.isRequired,
   y: PropTypes.number.isRequired,
-  isOver: PropTypes.bool.isRequired
+  isOver: PropTypes.bool.isRequired,
 };
 
 const BoardSquare = connect(

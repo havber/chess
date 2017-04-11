@@ -3,37 +3,39 @@ import Square from './Square.jsx';
 import {DragDropContext} from 'react-dnd';
 import HTMLBackend from 'react-dnd-html5-backend';
 import {connect} from "react-redux";
-import PawnDragLayer from '../pieces/Previews/CustomDragLayer.jsx';
+import DragLayer from '../pieces/Previews/CustomDragLayer.jsx';
 
 const mapStateToProps = (state) => {
   return {
-    numberOfMoves: state.numberOfMoves
+    numberOfMoves: state.numberOfMoves,
+    squares: state.squares,
   }
 };
 
 class Board extends React.Component {
 
-  renderSquare(i) {
-    const x = i % 8;
-    const y = Math.floor(i / 8);
+  renderSquare(square, index) {
+    const x = square.position.x;
+    const y = square.position.y;
     const cls = (x + y) % 2 === 1 ? 'dark' : 'light';
 
     return (
-      <div key={i} className={'square ' + cls} style={{ width: '12.5%', height: '12.5%' }}>
+      <div key={index} className={'square ' + cls} style={{ width: '12.5%', height: '12.5%' }}>
         <Square className={cls} x={x} y={y} isOver={false}/>
       </div>
     )
   }
 
   render() {
+    console.log(this.props);
     const squares = [];
-    for (let i = 0; i < 64; i ++) {
-      squares.push(this.renderSquare(i));
-    }
+    this.props.squares.forEach((square, index) => {
+      squares.push(this.renderSquare(square, index));
+    });
     return (
       <div>
         <div className="board">{squares}</div>
-        <PawnDragLayer/>
+        <DragLayer/>
       </div>
     );
   }
