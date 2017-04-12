@@ -21,7 +21,7 @@ class Board extends React.Component {
 
     return (
       <div key={index} className={'square ' + cls} style={{ width: '12.5%', height: '12.5%' }}>
-        <Square className={cls} x={x} y={y} isOver={false}/>
+        <Square className={cls} x={x} y={y} isOver={false} square={square}/>
       </div>
     )
   }

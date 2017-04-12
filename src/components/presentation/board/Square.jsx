@@ -87,6 +87,7 @@ class Square extends Component {
         className="clickTarget"
         onClick={this.squareClick.bind(this)}>
         {piece.element}
+        {this.props.square.name}
       </div>
     );
   }
