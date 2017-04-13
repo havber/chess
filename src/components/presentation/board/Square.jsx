@@ -33,17 +33,6 @@ class Square extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      selected: false,
-    };
-  }
-
-  squareClick(e) {
-    e.preventDefault();
-    this.setState({
-      selected: !this.state.selected
-    })
   }
 
   getPieceAtPosition(x, y) {
@@ -79,15 +68,15 @@ class Square extends Component {
   }
 
   render () {
-    const { x, y, connectDropTarget, isOver, } = this.props;
+    const { x, y, connectDropTarget, isOver, square} = this.props;
     const piece = this.getPieceAtPosition(x, y);
     return connectDropTarget(
       <div
-        style={{backgroundColor: isOver || this.state.selected ? 'yellow' : 'transparent'}}
+        style={{backgroundColor: isOver || square.selected ? 'yellow' : 'transparent'}}
         className="clickTarget"
-        onClick={this.squareClick.bind(this)}>
+        onClick={this.props.onClick}>
         {piece.element}
-        {this.props.square.name}
+        {square.name}
       </div>
     );
   }
@@ -97,6 +86,7 @@ Square.propTypes = {
   x: PropTypes.number.isRequired,
   y: PropTypes.number.isRequired,
   isOver: PropTypes.bool.isRequired,
+  square: PropTypes.object.isRequired,
 };
 
 const BoardSquare = connect(

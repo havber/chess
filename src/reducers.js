@@ -23,6 +23,17 @@ export function chessGame(state, action) {
         pieces: newPiecesArray,
         numberOfMoves: newState.numberOfMoves + 1
       };
+    case 'SELECT_SQUARE':
+      const nextState = Object.assign({}, state);
+      const id = action.data.id;
+      const squaresArr = JSON.parse(JSON.stringify(state.squares));
+
+      squaresArr.forEach(square => {
+        square.selected = square.id === id ? !square.selected : false;
+      });
+      nextState.squares = squaresArr;
+
+      return nextState;
     default:
       console.log('STATE');
       return state;

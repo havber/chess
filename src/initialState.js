@@ -35,7 +35,7 @@ export const initialState = {
   ],
 squares: [
   {id: 57, position: {x: 0, y: 7}, name: 'a8', selected: false, occupied: true},
-  {id: 58, position: {x: 1, y: 7}, name: 'b8', selected: false, occupied: true},
+  {id: 58, position: {x: 1, y: 7}, name: 'b8', selected: true, occupied: true},
   {id: 59, position: {x: 2, y: 7}, name: 'c8', selected: false, occupied: true},
   {id: 60, position: {x: 3, y: 7}, name: 'd8', selected: false, occupied: true},
   {id: 61, position: {x: 4, y: 7}, name: 'e8', selected: false, occupied: true},

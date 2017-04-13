@@ -14,6 +14,14 @@ const mapStateToProps = (state) => {
 
 class Board extends React.Component {
 
+  onSquareSelected() {
+    const square = Array.prototype.slice.call(arguments)[0];
+    this.props.dispatch({
+      type: 'SELECT_SQUARE',
+      data: square,
+    })
+  }
+
   renderSquare(square, index) {
     const x = square.position.x;
     const y = square.position.y;
@@ -21,13 +29,12 @@ class Board extends React.Component {
 
     return (
       <div key={index} className={'square ' + cls} style={{ width: '12.5%', height: '12.5%' }}>
-        <Square className={cls} x={x} y={y} isOver={false} square={square}/>
+        <Square className={cls} x={x} y={y} isOver={false} square={square} onClick={this.onSquareSelected.bind(this, square)}/>
       </div>
     )
   }
 
   render() {
-    console.log(this.props);
     const squares = [];
     this.props.squares.forEach((square, index) => {
       squares.push(this.renderSquare(square, index));
