@@ -69,7 +69,7 @@ squares: [
   {id: 25, position: {x: 0, y: 3}, name: 'a4', selected: false, occupied: false},
   {id: 26, position: {x: 1, y: 3}, name: 'b4', selected: false, occupied: false},
   {id: 27, position: {x: 2, y: 3}, name: 'c4', selected: false, occupied: false},
-  {id: 28, position: {x: 3, y: 3}, name: 'd4', selected: false, occupied: false},
+  {id: 28, position: {x: 3, y: 3}, name: 'd4', selected: false, occupied: true},
   {id: 29, position: {x: 4, y: 3}, name: 'e4', selected: false, occupied: false},
   {id: 30, position: {x: 5, y: 3}, name: 'f4', selected: false, occupied: false},
   {id: 31, position: {x: 6, y: 3}, name: 'g4', selected: false, occupied: false},
