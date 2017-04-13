@@ -25,7 +25,7 @@ class Board extends React.Component {
   renderSquare(square, index) {
     const x = square.position.x;
     const y = square.position.y;
-    const cls = (x + y) % 2 === 1 ? 'dark' : 'light';
+    const cls = (x + y) % 2 === 0 ? 'dark' : 'light';
 
     return (
       <div key={index} className={'square ' + cls} style={{ width: '12.5%', height: '12.5%' }}>
